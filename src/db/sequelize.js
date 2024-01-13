@@ -4,9 +4,10 @@ const PokemonModel = require('../models/pokemon')
 const UserModel = require('../models/user')
 const pokemons = require('./mock-pokemon')
 const bcrypt = require('bcrypt')
+const config = require('../config/config')
 
-const sequelize = new Sequelize('pokedex', 'root', '', {
-  host: 'localhost',
+const sequelize = new Sequelize(config.DB_DBNAME, config.DB_USERNAME, config.DB_PASSWORD, {
+  host: config.DB_HOST,
   dialect: 'mariadb',
   dialectOptions: {
     timezone: 'Etc/GMT-2',
